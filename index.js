@@ -30,7 +30,7 @@ function addingNote(e) {
     if (addTxt.value.length !== 0) {
         notesObj.push(addTxt.value);
     }
-    else{
+    else {
         alert("Please!   Type some note on Text Area and try adding it!, Thank You!")
     }
     localStorage.setItem("notes", JSON.stringify(notesObj));
@@ -86,7 +86,18 @@ function deleting(idx) {
 
 // Searching Methode- if it's not in the div , make the div display none 
 let inputSerch = document.getElementById("inputSerch");
-inputSerch.addEventListener("input", function (e) {
+
+inputSerch.addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+        e.preventDefault();
+        searchingNote(e);
+        inputSerch.value = "";
+    }
+});
+
+inputSerch.addEventListener("input", searchingNote);
+
+function searchingNote(e) {
     let searchKey = inputSerch.value.toLowerCase();
     let searchDiv = document.getElementsByClassName("noteCard");
     for (div of searchDiv) {
@@ -98,4 +109,4 @@ inputSerch.addEventListener("input", function (e) {
             div.style.display = "none";
         }
     }
-});
+}
