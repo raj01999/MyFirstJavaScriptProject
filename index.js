@@ -50,11 +50,11 @@ function showNotes() {
     let html = "";
     notesObj.forEach((val, idx) => {
         html += `
-        <div class="card noteCard" onclick="deleting(${idx})" style="width: 18rem;">
+        <div class="card noteCard" style="width: 18rem;">
                 <div class="card-body">
                     <h5 class="card-title">${idx + 1}. ${val.split(" ")[0]}</h5>
                     <p class="card-text">${val}</p>
-                    <a href="#" class="btn btn-primary">Delete Note</a>
+                    <button class="btn btn-primary" onclick="deleting(${idx})" >Delete Note</button>
                 </div>
             </div> `;
     });
