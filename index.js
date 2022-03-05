@@ -6,13 +6,13 @@ showNotes();
 // adding eventListener for enter and buttne click 
 let AddBtn = document.getElementById("addBtn");
 
-AddBtn.addEventListener("click", addingNote)
+AddBtn.addEventListener("click", addingNote);
 let addTxt = document.getElementById("addTxt");
 
 addTxt.addEventListener('keypress', function (e) {
     if (e.key === 'Enter') {
         addingNote(e);
-        location.href = "./index.html"
+        location.href = "./index.html";
     }
 });
 
@@ -82,10 +82,10 @@ function deleting(idx) {
 // Searching Methode- if it's not in the div , make the div display none 
 let inputSerch = document.getElementById("inputSerch");
 inputSerch.addEventListener("input", function (e) {
-    let searchKey = inputSerch.value;
+    let searchKey = inputSerch.value.toLowerCase();
     let searchDiv = document.getElementsByClassName("noteCard");
     for (div of searchDiv) {
-        let searchP = div.querySelector("p").innerText;
+        let searchP = div.querySelector("p").innerText.toLowerCase();
         if (searchP.includes(searchKey)) {
             div.style.display = "inline-block";
         }
