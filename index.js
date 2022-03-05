@@ -27,7 +27,12 @@ function addingNote(e) {
     else {
         notesObj = JSON.parse(notes);
     }
-    notesObj.push(addTxt.value);
+    if (addTxt.value.length !== 0) {
+        notesObj.push(addTxt.value);
+    }
+    else{
+        alert("Please!   Type some note on Text Area and try adding it!, Thank You!")
+    }
     localStorage.setItem("notes", JSON.stringify(notesObj));
     addTxt.value = "";
 
